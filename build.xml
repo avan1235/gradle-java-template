@@ -1,6 +1,6 @@
 <project name="ml.dev.kotlin" default="uploadandrun">
     <description>
-        ml.dev.kotlin.Main build file
+        ml.dev.kotlin.MainKt build file
     </description>
 
     <!-- set properties for this build -->
@@ -24,6 +24,9 @@
     <path id="lejos.nxt">
         <fileset dir="${nxj.home}/lib/nxt">
             <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${kotlin.lib}">
+            <include name="**/kotlin-stdlib.jar"/>
         </fileset>
     </path>
 

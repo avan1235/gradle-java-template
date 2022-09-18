@@ -1,8 +1,8 @@
 package ml.dev.kotlin
 
-object Main {
-    @JvmStatic
-    fun main() {
-        println("fsdfsdf")
-    }
+import lejos.nxt.Button
+
+fun main() {
+    println("Hello Kotlin")
+    Button.ESCAPE.waitForPress()
 }

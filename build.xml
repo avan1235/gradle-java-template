@@ -3,11 +3,11 @@
         ml.dev.kotlin.Main build file
     </description>
 
-    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
-
     <!-- set properties for this build -->
     <property environment="env"/>
     <property file="build.properties"/>
+
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <!-- check whether nxj.home is correct -->
     <available file="${nxj.home}/lib/pc" property="lejos.pc.exists"/>

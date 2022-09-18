@@ -10,4 +10,5 @@ ant.importBuild("build.xml") { "ant-$it" }
 
 dependencies {
     implementation(files("${System.getenv("NXJ_HOME")}/lib/nxt/classes.jar"))
+    implementation(files("/opt/env/kotlinc/lib/kotlin-stdlib.jar"))
 }

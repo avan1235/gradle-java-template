@@ -41,29 +41,18 @@
     <target name="compile" depends="clean" description="compile the source ">
         <!-- Compile the java code from ${source.dir} to ${classes.dir}  -->
         <mkdir dir="${classes.dir}"/>
-        <javac
-                srcdir="${source.dir}"
-                includes="${source.include}"
-                excludes="${source.exclude}"
-                encoding="${source.encoding}"
-                source="${source.version}"
-                target="${target.version}"
-                destdir="${classes.dir}"
-                debug="true"
-                includeAntRuntime="false"
-                includeJavaRuntime="false"
-                verbose="false"
-        >
-            <bootclasspath refid="lejos.nxt"/>
-            <!-- enable warnings -->
-            <compilerarg value="-Xlint:${source.warn}"/>
-            <!--
-                Without this, there are some JDK jars in the classpath.
-                Set verbose=true to check that the classpath is really clean.
-            -->
-            <compilerarg value="-extdirs"/>
-            <compilerarg value=""/>
-        </javac>
+        <kotlinc classpathref="lejos.nxt"
+                 includeruntime="false"
+                 output="${classes.dir}"
+                 failonerror="true"
+                 src="${source.dir}"
+                 verbose="true">
+            <compilerarg value="-jvm-target"/>
+            <compilerarg value="${target.version}"/>
+            <compilerarg value="-no-jdk"/>
+            <compilerarg value="-no-reflect"/>
+            <compilerarg value="-no-stdlib"/>
+        </kotlinc>
     </target>
 
     <target name="link" depends="compile" description="link the binary ">

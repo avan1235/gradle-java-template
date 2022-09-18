@@ -3,4 +3,6 @@ plugins {
 }
 
 group = "ml.dev.kotlin"
-version = "1.0-SNAPSHOT"
+version = "1.0"
+
+ant.importBuild("build.xml") { "ant-$it" }
